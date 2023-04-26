@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
 import type { NextPage } from "next";
+import QRCode from "react-qr-code";
 import { AddressInput, Balance } from "~~/components/scaffold-eth";
 
 const Home: NextPage = () => {
@@ -60,6 +61,8 @@ const Home: NextPage = () => {
             Safe
           </button>
         </div>
+
+        <div className="pt-8 flex flex-col">{someAddress ? <QRCode value={someAddress} /> : ""}</div>
       </div>
     </>
   );
