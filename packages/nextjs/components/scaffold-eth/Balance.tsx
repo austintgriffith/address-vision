@@ -38,13 +38,13 @@ export const Balance = ({ address, className = "" }: TBalanceProps) => {
       <div className="w-full flex items-center justify-center">
         {isEthBalance ? (
           <>
-            <span>{balance?.toFixed(4)}</span>
-            <span className="text-xs font-bold ml-1">ETH</span>
+            <span className="text-3xl">{balance?.toFixed(4)}</span>
+            <span className="text-3xl font-bold ml-1">ETH</span>
           </>
         ) : (
           <>
-            <span className="text-xs font-bold mr-1">$</span>
-            <span>{(balance * price).toFixed(2)}</span>
+            <span className="text-3xl font-bold mr-1">$</span>
+            <span className="text-3xl">{(balance * price).toFixed(2)}</span>
           </>
         )}
       </div>
