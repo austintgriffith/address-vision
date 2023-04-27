@@ -2,7 +2,7 @@ import { useState } from "react";
 import Head from "next/head";
 import type { NextPage } from "next";
 import QRCode from "react-qr-code";
-import { AddressInput, Balance } from "~~/components/scaffold-eth";
+import { Address, AddressInput, Balance } from "~~/components/scaffold-eth";
 
 const Home: NextPage = () => {
   const [someAddress, setSomeAddress] = useState("");
@@ -13,13 +13,16 @@ const Home: NextPage = () => {
         <title>Scaffold-ETH 2 App</title>
         <meta name="description" content="Created with 🏗 scaffold-eth-2" />
       </Head>
-      <div className="w-full"></div>
+
       <div className="flex w-full items-center flex-col flex-grow pt-10">
         <AddressInput
           placeholder="enter an ethereum address or ens name"
           value={someAddress}
           onChange={setSomeAddress}
         />
+        <div className="flex w-full items-center flex-col flex-grow pt-10">
+          <Address address={someAddress} />
+        </div>
         <div className="p-8">{someAddress ? <Balance address={someAddress} /> : ""}</div>
         <div className="grid grid-cols-4 m-8 gap-4 ">
           <button
@@ -30,6 +33,26 @@ const Home: NextPage = () => {
             }}
           >
             Etherscan
+          </button>
+
+          <button
+            className="btn btn-active btn-primary"
+            onClick={() => {
+              //go to https://app.zerion.io/
+              window.open("https://blockscan.com/address/" + someAddress + "", "_blank");
+            }}
+          >
+            Blockscan
+          </button>
+
+          <button
+            className="btn btn-active btn-primary"
+            onClick={() => {
+              //go to https://app.zerion.io/
+              window.open("https://optimistic.etherscan.io/address/" + someAddress + "", "_blank");
+            }}
+          >
+            Op Etherscan
           </button>
 
           <button
