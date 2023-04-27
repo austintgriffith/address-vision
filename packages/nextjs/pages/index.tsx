@@ -36,6 +36,16 @@ const Home: NextPage = () => {
             className="btn btn-active btn-primary"
             onClick={() => {
               //go to https://app.zerion.io/
+              window.open("https://optimistic.etherscan.io/address/" + someAddress + "", "_blank");
+            }}
+          >
+            Optimistic Etherscan
+          </button>
+
+          <button
+            className="btn btn-active btn-primary"
+            onClick={() => {
+              //go to https://app.zerion.io/
               window.open("https://app.zerion.io/" + someAddress + "/overview", "_blank");
             }}
           >
